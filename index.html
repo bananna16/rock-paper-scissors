@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <script>
+        const PAPER = "paper";
+        const SCISSORS = "scissors";
+        const ROCK = "rock";
+
+        function computerPlay() {
+            let index = Math.floor((Math.random * 3));
+            if (index == 0) {
+                return PAPER;
+            } else if (index == 1) {
+                return SCISSORS;
+            } else {
+                return ROCK;
+            }
+        }
+
+        //I assume that both player and computer selection are valid
+        function playRound(playerSelection, computerSelection) {
+            let player = playerSelection.toLowerCase();
+            let won = false;
+            if (player == computerSelection) {
+                return ("You tied! You and the computer both chose " + player);
+            } else if (player == ROCK) {
+                if (computerSelection == PAPER) {
+                    won = false;
+                } else {
+                    won = true;
+                }
+            } else if (player == PAPER) {
+                if (computerSelection == SCISSORS) {
+                    won = false;
+                } else {
+                    won = true;
+                }
+            } else {
+                if (computerSelection == ROCK) {
+                    won = false;
+                } else {
+                    won = true;
+                }
+            }
+            if (won) {
+                return "You won! Your choice of " + player + "beats " + computerSelection;
+            } else {
+                return "You lose! Your choice of " + player + "loses to " + computerSelection;
+            }
+        }
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                let playerChoice = window.prompt("Enter your choice of rock, paper, or scissors: ");
+                if (window == ROCK || window == PAPER || window == SCISSORS) {
+                    computerChoice = computerPlay();
+                    console.log(playRound(playerChoice, computerChoice));
+                } else {
+                    console.log("Invalid input. Please enter rock, paper, or scissors.")
+                }
+            }
+        }
+    </script>
+</html>
+
