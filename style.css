@@ -1,0 +1,18 @@
+
+.center {
+    text-align: center;
+}
+
+#buttons {
+    padding-top: 10px;
+}
+
+#result {
+    border: solid;
+    border-width: 1.5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

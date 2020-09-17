@@ -2,67 +2,35 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h1 class="center">Rock Paper Scissors</h1>
+                    <div class="center">Simply press one of the buttons below to play rock paper scissors against a computer.</div>
+                </div>
+            </div>
+            <div class="row text-center" id="buttons">
+                <button id="rock" class="btn btn-primary">Play Rock</button>
+                <button id="paper" class="btn btn-primary">Play Paper</button>
+                <button id="scissors" class="btn btn-primary">Play Scissors</button>
+            </div>
+            <div class="row">
+                <h4 class="center">This is where the results from your games will show up!</h4>
+                <div class="col-md-auto center" id="computer-score">Computer: 0</div>
+                <div class="col-md-auto center" id="player-score">You: 0</div>
+                <div id="result" class="center"></div>
+            </div>
+        </div>
 
-    <script>
-        const PAPER = "paper";
-        const SCISSORS = "scissors";
-        const ROCK = "rock";
+        <script src="./script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-        function computerPlay() {
-            let index = Math.floor((Math.random * 3));
-            if (index == 0) {
-                return PAPER;
-            } else if (index == 1) {
-                return SCISSORS;
-            } else {
-                return ROCK;
-            }
-        }
+    </body>
 
-        //I assume that both player and computer selection are valid
-        function playRound(playerSelection, computerSelection) {
-            let player = playerSelection.toLowerCase();
-            let won = false;
-            if (player == computerSelection) {
-                return ("You tied! You and the computer both chose " + player);
-            } else if (player == ROCK) {
-                if (computerSelection == PAPER) {
-                    won = false;
-                } else {
-                    won = true;
-                }
-            } else if (player == PAPER) {
-                if (computerSelection == SCISSORS) {
-                    won = false;
-                } else {
-                    won = true;
-                }
-            } else {
-                if (computerSelection == ROCK) {
-                    won = false;
-                } else {
-                    won = true;
-                }
-            }
-            if (won) {
-                return "You won! Your choice of " + player + "beats " + computerSelection;
-            } else {
-                return "You lose! Your choice of " + player + "loses to " + computerSelection;
-            }
-        }
-
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                let playerChoice = window.prompt("Enter your choice of rock, paper, or scissors: ");
-                if (window == ROCK || window == PAPER || window == SCISSORS) {
-                    computerChoice = computerPlay();
-                    console.log(playRound(playerChoice, computerChoice));
-                } else {
-                    console.log("Invalid input. Please enter rock, paper, or scissors.")
-                }
-            }
-        }
-    </script>
 </html>
 
